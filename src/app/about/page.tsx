@@ -3,7 +3,7 @@ import PersonCard from "@/components/features/AboutUsPage/PersonCard";
 import Location from "@/components/features/AboutUsPage/Location";
 
 export default function About() {
-    return (<main className="container mx-auto px-4 py-12 mt-20 space-y-16">
+    return (<main className="container md:mx-auto mx-0 md:px-4 px-2 py-12 mt-8 space-y-16">
         <FadeInView>
             <h1 className="text-4xl font-bold text-center mb-12">About Us</h1>
         </FadeInView>

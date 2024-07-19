@@ -11,7 +11,7 @@ interface LocationProps {
 const Location: React.FC<LocationProps> = ({address, city, state, zipCode}) => {
     const API_KEY = process.env.GOOGLE_MAPS_API_KEY;
 
-    return (<div className="w-full max-w-2xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+    return (<div className="w-full max-w-2xl mx-auto bg-white dark:bg-black rounded-lg shadow-md overflow-hidden">
             <div className="aspect-w-16 aspect-h-9">
                 <iframe
                     className="w-full h-full border-0"
@@ -23,9 +23,9 @@ const Location: React.FC<LocationProps> = ({address, city, state, zipCode}) => {
             <div className="p-6">
                 <div className="flex items-center space-x-2 mb-2">
                     <MapPin className="text-blue-500" size={24}/>
-                    <h2 className="text-xl font-semibold text-gray-800">Location</h2>
+                    <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Location</h2>
                 </div>
-                <div className="text-gray-600">
+                <div className="text-gray-600 dark:text-white">
                     <p className="font-medium">{address}</p>
                     <p>{city}, {state} {zipCode}</p>
                     <p className="text-sm">(click map for more info)</p>

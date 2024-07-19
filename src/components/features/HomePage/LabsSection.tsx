@@ -64,7 +64,7 @@ function LabsSection() {
                     <h4 className="md:text-4xl text-3xl font-bold text-white tracking-wider uppercase">
                         Tapes
                     </h4>
-                    <p className="mb-3">We transfer audio and vide tapes to digital media.</p>
+                    <p className="mb-3">We transfer audio and video tapes to digital media.</p>
                     <Link href="/services"
                           className="text-black inline-block bg-white dark:bg-black dark:text-white py-2 px-4 rounded-full hover:bg-opacity-80 transition-colors duration-300">
                         Learn More
