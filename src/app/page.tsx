@@ -5,7 +5,8 @@ import FeaturedWork from "@/components/features/HomePage/FeaturedWork";
 import LabsSection from "@/components/features/HomePage/LabsSection";
 
 export default function Home() {
-    return (<main>
+    return (
+        <main>
         <Hero/>
         <ServiceHighlights
             services={[{

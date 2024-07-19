@@ -1,7 +1,9 @@
-export default function Contact() {
+import Contact from "@/components/features/ContactPage/Contact";
+
+export default function ContactPage() {
     return (
         <main>
-            <p>Contact Us!</p>
+            <Contact phone="(806) 358-9616" email="melissa@thephotostore.com" includeForm={true}/>
         </main>
-    );
+    )
 }

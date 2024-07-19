@@ -20,11 +20,11 @@ function GalleryCard({ work }: { work: Work }) {
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
             <div
-                className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-6 dark:text-white text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <h3 className="text-2xl font-bold mb-2">{work.title}</h3>
+                className="text-white absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-6 dark:text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <h3 className="md:text-2xl text-xl font-bold mb-2">{work.title}</h3>
                 <p className="mb-4">{work.description}</p>
                 <Link href={work.link}
-                      className="inline-block bg-white text-black text-center py-2 px-4 rounded-full hover:bg-opacity-80 transition-colors duration-300">
+                      className="inline-block bg-white dark:bg-black text-black dark:text-white text-center py-2 px-4 rounded-full hover:bg-opacity-80 transition-colors duration-300">
                     View Collection
                 </Link>
             </div>
