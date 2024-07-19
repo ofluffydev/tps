@@ -2,7 +2,7 @@ import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import "./globals.css";
 import React from "react";
-import Header from "./Header"; // We'll create this as a separate client component
+import Header from "@/components/layout/Header";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -16,11 +16,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (<html lang="en">
-        <body className={inter.className}>
-        <Header/>
-        <main className="container mx-auto px-6 py-8">
-            {children}
-        </main>
-        </body>
-        </html>);
+    <body className={inter.className}>
+    <Header/>
+    <main className="container md:mx-auto md:px-6 py-8">
+        {children}
+    </main>
+    </body>
+    </html>);
 }

@@ -3,7 +3,6 @@
 import React, { useState, useRef } from "react";
 import Link from 'next/link';
 import Image from "next/image";
-import logo from "./tps-logo-black.png";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,13 +13,13 @@ const Header = () => {
     };
 
     return (
-        <header className="bg-gray-900 text-white">
+        <header className="bg-gray-900 text-white fixed w-full z-50">
             <nav className="container mx-auto px-6 py-3">
                 <div className="flex items-center justify-between">
                     <div className="text-xl font-semibold flex flex-row">
                         <Link href="/">
                             <Image
-                                src={logo}
+                                src="/images/logo/tps-logo-black.png"
                                 width={200}
                                 height={100}
                                 alt="The Photo Store logo"

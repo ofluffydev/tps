@@ -35,3 +35,21 @@ body {
     text-wrap: balance;
   }
 }
+
+
+.animated-list-item {
+  animation: fadeIn .5s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
