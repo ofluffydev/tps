@@ -1,3 +1,5 @@
+// noinspection ExceptionCaughtLocallyJS
+
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -31,7 +33,7 @@ const FillerElement: React.FC<FillerElementProps> = ({ paragraphs = 1, className
             }
         };
 
-        fetchText();
+        fetchText().then(() =>  {});
     }, [paragraphs]);
 
     if (isLoading) {

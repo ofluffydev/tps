@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import {useState} from "react";
+import {FC, useState} from "react";
 import ImageModal from "@/components/ui/ImageModal";
 
 const images = [{
@@ -23,7 +23,7 @@ interface ImageType {
     alt: string;
 }
 
-const Family: React.FC = () => {
+const Family: FC = () => {
     const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
 
     const openModal = (image: ImageType) => {
