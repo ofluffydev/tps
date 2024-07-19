@@ -115,7 +115,7 @@ const Contact: FC<ContactProps> = ({
                     <AlertTitle>Testing Only</AlertTitle>
                     <AlertDescription>This form doesn&apos;t send emails anywhere yet. For now, please use any of the
                         methods
-                        above to contact me.</AlertDescription>
+                        above to contact us.</AlertDescription>
                 </Alert>
                 <form onSubmit={handleSubmit} className="text-black space-y-4">
                     <Input
