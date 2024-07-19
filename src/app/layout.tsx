@@ -7,7 +7,8 @@ import Header from "@/components/layout/Header";
 const inter = Inter({subsets: ["latin"]});
 
 export const metadata: Metadata = {
-    title: "The Photo Store", description: "A store for photos 💀",
+    title: "The Photo Store",
+    description: "Your premier full-service portrait studio. Our master-trained photographers specialize in capturing timeless moments for families, children, infants, seniors, and weddings. Experience professional, personalized photography that tells your unique story.",
 };
 
 export default function RootLayout({

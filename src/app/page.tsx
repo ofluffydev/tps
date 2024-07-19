@@ -1,5 +1,4 @@
 import Hero from "@/components/features/HomePage/Hero";
-import FillerElement from "@/components/development/FillerElement";
 import {CameraIcon, PaletteIcon, PrinterIcon, WandSparklesIcon} from "lucide-react";
 import ServiceHighlights from "@/components/features/HomePage/ServiceHighlights";
 import FeaturedWork from "@/components/features/HomePage/FeaturedWork";
