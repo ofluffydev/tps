@@ -1,7 +1,9 @@
+import AllCollections from "@/components/GalleryPage/AllCollections";
+
 export default function Gallery() {
     return (
         <main>
-            <p>Gallery!</p>
+            <AllCollections/>
         </main>
     );
 }

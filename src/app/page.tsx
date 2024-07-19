@@ -40,6 +40,5 @@ export default function Home() {
             },]}
         />
         <LabsSection/>
-        <FillerElement paragraphs={100}/>
     </main>);
 }
