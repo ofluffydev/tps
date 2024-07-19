@@ -27,7 +27,7 @@ const Header = () => {
                                     width: 'auto',
                                     height: 'auto',
                                 }}
-                                className="nav-tps-logo w-20 sm:w-24 md:w-28 lg:w-32 h-auto"
+                                className="nav-tps-logo w-20 sm:w-24 md:w-28 lg:w-32 h-auto max-h-64"
                             />
                         </Link>
                     </div>
