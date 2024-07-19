@@ -16,18 +16,15 @@ const Header = () => {
         <header className="bg-gray-900 text-white fixed w-full max-h-64 z-50">
             <nav className="container mx-auto px-6 py-3">
                 <div className="flex items-center justify-between">
-                    <div className="text-xl font-semibold flex flex-row">
+                    <div className="text-xl font-semibold flex flex-row items-center">
                         <Link href="/">
                             <Image
                                 src="/images/logo/tps-logo-black.png"
                                 width={200}
                                 height={100}
                                 alt="The Photo Store logo"
-                                style={{
-                                    width: 'auto',
-                                    height: 'auto',
-                                }}
-                                className="nav-tps-logo w-20 sm:w-24 md:w-28 lg:w-32 h-auto"
+                                className="nav-tps-logo w-auto h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16"
+                                priority
                             />
                         </Link>
                     </div>
