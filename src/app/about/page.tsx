@@ -41,7 +41,7 @@ export default function About() {
                     <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg">
                         <h3 className="text-xl font-semibold mb-2">Founded in 1987</h3>
                         <p className="text-gray-600 dark:text-gray-300">
-                            Frisk Photo was founded in 1987 by Myrle & Coralis. The company started as a small lab that
+                            The Photo Store was founded in 1987 by Myrle & Corlis. The company started as a small lab that
                             mainly focuses on film processing and has grown to include a photo store and photography
                             services.
                         </p>
@@ -51,8 +51,7 @@ export default function About() {
                         <p className="text-gray-600 dark:text-gray-300">
                             In 2013 Melissa Frisk purchased the company. She brought new ideas and expanded the
                             company&apos;s services to include digital photography. She has kept The Photo Store alive
-                            and
-                            growing for over 10 years.
+                            and growing for over 10 years.
                         </p>
                     </div>
                 </div>
