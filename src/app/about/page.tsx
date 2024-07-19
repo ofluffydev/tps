@@ -16,12 +16,12 @@ export default function About() {
                     <PersonCard
                         name="Melissa Frisk"
                         about="Melissa Frisk joined The Photo Store in November 2004, dedicating over 8 years to the company before purchasing it in 2013. Her transition from employee to owner showcases her commitment and business acumen. Under Melissa's leadership, the store has successfully adapted to the digital age while maintaining its reputation for quality and personalized service. Her innovative approach and warm personality have expanded the business, fostering a loyal customer base and a positive work environment."
-                        image="/melissa.jpg"
+                        image="/images/melissa.jpg"
                     />
                     <PersonCard
                         name="Ashlyn"
                         about="Ashlyn joined The Photo Store in 2015, bringing her dual expertise in photography and graphic design. Over the past nine years, her creative vision and technical skills have been instrumental in delivering high-quality work to our clients. Ashlyn's versatility and dedication have significantly contributed to our store's reputation for excellence in both photography and design services."
-                        image="/ashlyn.jpg"
+                        image="/images/ashlyn.jpg"
                     />
                 </div>
             </FadeInView>
@@ -30,7 +30,7 @@ export default function About() {
         <section className="space-y-4">
             <FadeInView>
                 <h2 className="text-3xl font-bold mb-4">Locations</h2>
-                <Location address="3706 Olsen Blvd" city="Amarillo" state="Texas" zipCode="79109"/>
+                <Location title="The Photo Store" address="3706 Olsen Blvd" city="Amarillo" state="Texas" zipCode="79109"/>
             </FadeInView>
         </section>
 
