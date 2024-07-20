@@ -13,7 +13,7 @@ export default function Home() {
         <Alert className="bg-red-200 dark:bg-red-900 border-red-600 mb-3 my-3">
             <FilmIcon/>
             <AlertTitle>Film Processing Temporarily Unavailable</AlertTitle>
-            <AlertDescription>We currently cannot develop film due to technical difficulties. However, we still can scan
+            <AlertDescription>We currently cannot develop film due to technical difficulties. However, we can still scan
                 film that has already been developed.</AlertDescription>
         </Alert>
         <ServiceHighlights

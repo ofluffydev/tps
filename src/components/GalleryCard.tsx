@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-interface Work {
+export interface Work {
     title: string;
     image: string;
     description: string;

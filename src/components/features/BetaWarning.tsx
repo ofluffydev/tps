@@ -9,7 +9,7 @@ interface BetaWarningProps {
 
 function BetaWarning({isBeta}: BetaWarningProps) {
 
-    const BetaAlert = () => (<Alert className="bg-neutral-200 mt-20 mb-3 border-neutral-500">
+    const BetaAlert = () => (<Alert className="bg-neutral-200 dark:bg-neutral-800 mt-20 mb-3 border-neutral-500">
             <InfoIcon/>
             <AlertTitle>Beta Website</AlertTitle>
             <AlertDescription>This is a beta version of our site. If you are looking for the main one, go to <Link
