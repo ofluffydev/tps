@@ -29,7 +29,7 @@ const ServiceHighlights: React.FC<ServiceHighlightsProps> = ({services}) => {
             </div>
             <div className="w-full text-center">
                 <Link href="/services"
-                      className="inline-block bg-white text-black py-2 px-4 rounded-full hover:bg-opacity-80 transition-colors duration-300 mt-10">
+                      className="inline-block bg-white dark:bg-neutral-900 dark:text-white text-black py-2 px-4 rounded-full hover:bg-opacity-80 transition-colors duration-300 mt-10">
                     Learn More
                 </Link>
             </div>

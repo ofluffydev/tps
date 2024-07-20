@@ -32,7 +32,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
                 <FadeInView>
                     <Link href="/services"
-                          className="flex items-center rounded-full bg-white px-6 py-3 text-black transition-colors hover:bg-gray-200">
+                          className="flex items-center rounded-full bg-white px-6 py-3 text-black transition-colors hover:bg-gray-200 dark:bg-black dark:text-white dark:hover:bg-gray-700">
                         Our Services
                         <ChevronRight className="ml-2 h-5 w-5"/>
                     </Link>

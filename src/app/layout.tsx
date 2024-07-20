@@ -3,6 +3,7 @@ import {Inter} from "next/font/google";
 import "./globals.css";
 import React from "react";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -19,9 +20,10 @@ export default function RootLayout({
     return (<html lang="en">
     <body className={inter.className + " dark:bg-neutral-950"}>
     <Header/>
-    <main className="container md:mx-auto md:px-6 py-8">
+    <main className="sm:container md:mx-auto md:px-6 py-8">
         {children}
     </main>
+    <Footer/>
     </body>
     </html>);
 }
