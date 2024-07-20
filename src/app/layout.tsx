@@ -4,8 +4,10 @@ import "./globals.css";
 import React from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import BetaWarning from "@/components/features/BetaWarning";
 
 const inter = Inter({subsets: ["latin"]});
+const isBeta = process.env.IS_BETA === "true";
 
 export const metadata: Metadata = {
     title: "The Photo Store",
@@ -19,8 +21,9 @@ export default function RootLayout({
 }>) {
     return (<html lang="en">
     <body className={inter.className + " dark:bg-neutral-950"}>
-    <Header/>
+    <Header isBeta={isBeta}/>
     <main className="sm:container md:mx-auto md:px-6 py-8">
+        <BetaWarning isBeta={isBeta}/>
         {children}
     </main>
     <Footer/>

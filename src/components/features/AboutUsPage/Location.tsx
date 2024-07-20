@@ -10,7 +10,12 @@ interface LocationProps {
 }
 
 const Location: React.FC<LocationProps> = ({title, address, city, state, zipCode}) => {
-    const API_KEY = process.env.GOOGLE_MAPS_API_KEY;
+    const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
+
+    // Ensure the API key is set, otherwise raise an error
+    if (!GOOGLE_MAPS_API_KEY) {
+        throw new Error("GOOGLE_MAPS_API_KEY environment variable is not set");
+    }
 
     return (<div className="w-full max-w-2xl mx-auto bg-white dark:bg-black rounded-lg shadow-md overflow-hidden">
             <div className="aspect-w-16 aspect-h-9">
@@ -18,7 +23,7 @@ const Location: React.FC<LocationProps> = ({title, address, city, state, zipCode
                     className="w-full h-full border-0"
                     loading="lazy"
                     allowFullScreen
-                    src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJK2KfX9pPAYcRmeUt4TRRGms&key=${API_KEY}`}
+                    src={`https://www.google.com/maps/embed/v1/place?q=place_id:ChIJK2KfX9pPAYcRmeUt4TRRGms&key=${GOOGLE_MAPS_API_KEY}`}
                 ></iframe>
             </div>
             <div className="p-6">

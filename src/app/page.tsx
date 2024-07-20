@@ -7,6 +7,7 @@ import {Alert, AlertDescription, AlertTitle} from "@/components/ui/alert";
 import React from "react";
 
 export default function Home() {
+
     return (<main>
         <Hero/>
         <Alert className="bg-red-200 dark:bg-red-900 border-red-600 mb-3 my-3">
