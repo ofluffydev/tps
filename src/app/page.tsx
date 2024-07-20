@@ -1,13 +1,20 @@
 import Hero from "@/components/features/HomePage/Hero";
-import {CameraIcon, PaletteIcon, PrinterIcon, WandSparklesIcon} from "lucide-react";
+import {CameraIcon, FilmIcon, PaletteIcon, PrinterIcon, WandSparklesIcon} from "lucide-react";
 import ServiceHighlights from "@/components/features/HomePage/ServiceHighlights";
 import FeaturedWork from "@/components/features/HomePage/FeaturedWork";
 import LabsSection from "@/components/features/HomePage/LabsSection";
+import {Alert, AlertDescription, AlertTitle} from "@/components/ui/alert";
+import React from "react";
 
 export default function Home() {
-    return (
-        <main>
+    return (<main>
         <Hero/>
+        <Alert className="bg-red-200 dark:bg-red-900 border-red-600 mb-3 my-3">
+            <FilmIcon/>
+            <AlertTitle>Film Processing Temporarily Unavailable</AlertTitle>
+            <AlertDescription>We currently cannot develop film due to technical difficulties. However, we still can scan
+                film that has already been developed.</AlertDescription>
+        </Alert>
         <ServiceHighlights
             services={[{
                 name: "Professional Photography",
