@@ -89,7 +89,7 @@ export default function Services() {
             }, {
                 name: "Large Format Printing", description: "Oversized prints for exhibitions, signage, and decor."
             }, {
-                name: "Video Services", description: "Basic video recording and editing for events and promotions."
+                name: "Video Services", description: "Video editing for events and promotions."
             }, {
                 name: "Custom Projects", description: "Tailored photography and printing solutions for unique requests."
             }]}
@@ -106,7 +106,7 @@ export default function Services() {
             }, {
                 name: "Brand Photography", description: "Custom photography to showcase your brand and products."
             }, {
-                name: "Event Coverage", description: "Photography and videography for corporate events and functions."
+                name: "Event Coverage", description: "Photography for corporate events and functions."
             }]}
         />
 
