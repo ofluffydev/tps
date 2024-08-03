@@ -72,11 +72,6 @@ export default function Services() {
               "Convert your physical photos and negatives to digital format.",
           },
           {
-            name: "Custom Framing",
-            description:
-              "Choose from a wide range of framing options for your prints.",
-          },
-          {
             name: "Photo Books",
             description: "Design and print custom photo books and albums.",
           },
