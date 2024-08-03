@@ -29,7 +29,6 @@ function AllCollections() {
         <h1 className="font-bold text-4xl text-center">
           All of our photography collections
         </h1>
-        <p>Our best photos hand picked out of 500k+ photos we have taken.</p>
         <p className="text-sm text-gray-400">(Click/hover to see more)</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
