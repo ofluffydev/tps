@@ -6,7 +6,7 @@ export default function ContactPage() {
       <Contact
         phone="(806) 358-9616"
         email="melissa@thephotostore.com"
-        facebook="thephotostore"
+        facebook="tpsamarillo"
         includeForm={false}
       />
     </main>
