@@ -55,7 +55,7 @@ export default function Services() {
           {
             name: "Film Development",
             description:
-              "Processing for 35mm, 120, and large format films, both color and black & white.",
+              "Processing for 35mm films, both color and black & white. We do not process 120 film, but we can scan it. Currently unavailable due to technical issues.",
           },
           {
             name: "Photo Printing",
