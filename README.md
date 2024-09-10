@@ -1,4 +1,4 @@
-# The Photo Store Website
+# The Photo Store Website :3
 
 This is a website built with react, next.js, and Tailwind CSS. It is a photo store website where you can view photos, add them to your cart, and checkout. The website is fully responsive and has a dark mode feature.
 
