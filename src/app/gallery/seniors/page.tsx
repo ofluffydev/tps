@@ -1,51 +1,42 @@
 "use client";
 
 import Image from "next/image";
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import ImageModal from "@/components/ui/ImageModal";
-
-const images = [
-  {
-    src: "/images/gallery/seniors/senior1.jpg",
-    alt: "Senior 1",
-  },
-  {
-    src: "/images/gallery/seniors/senior2.jpg",
-    alt: "Senior 2",
-  },
-  {
-    src: "/images/gallery/seniors/senior3.jpg",
-    alt: "Senior 3",
-  },
-  {
-    src: "/images/gallery/seniors/senior4.jpg",
-    alt: "Senior 4",
-  },
-  {
-    src: "/images/gallery/seniors/senior5.jpg",
-    alt: "Senior 5",
-  },
-  {
-    src: "/images/gallery/seniors/senior6.jpg",
-    alt: "Senior 6",
-  },
-  {
-    src: "/images/gallery/seniors/senior7.jpg",
-    alt: "Senior 7",
-  },
-  {
-    src: "/images/gallery/seniors/senior8.jpg",
-    alt: "Senior 8",
-  },
-];
 
 interface ImageType {
   src: string;
   alt: string;
 }
 
-const Baby: FC = () => {
+const Seniors: FC = () => {
+  const [images, setImages] = useState<ImageType[]>([]);
   const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/images?gallery=seniors")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (Array.isArray(data.images)) {
+          setImages(data.images);
+        } else {
+          throw new Error("Received data is not in the expected format");
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching images:", err);
+        setError("Failed to load images. Please try again later.");
+        setLoading(false);
+      });
+  }, []);
 
   const openModal = (image: ImageType) => {
     setSelectedImage(image);
@@ -54,6 +45,14 @@ const Baby: FC = () => {
   const closeModal = () => {
     setSelectedImage(null);
   };
+
+  if (loading) {
+    return <div className="mt-20 text-center">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="mt-20 text-center text-red-500">Error: {error}</div>;
+  }
 
   return (
     <main className="mt-20 px-4">
@@ -86,4 +85,4 @@ const Baby: FC = () => {
   );
 };
 
-export default Baby;
+export default Seniors;

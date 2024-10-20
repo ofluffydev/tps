@@ -1,35 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import ImageModal from "@/components/ui/ImageModal";
-
-const images = [
-  {
-    src: "/images/gallery/family/family1.jpg",
-    alt: "Family 1",
-  },
-  {
-    src: "/images/gallery/family/family2.jpg",
-    alt: "Family 2",
-  },
-  {
-    src: "/images/gallery/family/family3.jpg",
-    alt: "Family 3",
-  },
-  {
-    src: "/images/gallery/family/family4.jpg",
-    alt: "Family 4",
-  },
-  {
-    src: "/images/gallery/family/family5.jpg",
-    alt: "Family 5",
-  },
-  {
-    src: "/images/gallery/family/family6.jpg",
-    alt: "Family 6",
-  },
-];
 
 interface ImageType {
   src: string;
@@ -37,7 +10,33 @@ interface ImageType {
 }
 
 const Family: FC = () => {
+  const [images, setImages] = useState<ImageType[]>([]);
   const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/images?gallery=family")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (Array.isArray(data.images)) {
+          setImages(data.images);
+        } else {
+          throw new Error("Received data is not in the expected format");
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching images:", err);
+        setError("Failed to load images. Please try again later.");
+        setLoading(false);
+      });
+  }, []);
 
   const openModal = (image: ImageType) => {
     setSelectedImage(image);
@@ -46,6 +45,14 @@ const Family: FC = () => {
   const closeModal = () => {
     setSelectedImage(null);
   };
+
+  if (loading) {
+    return <div className="mt-20 text-center">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="mt-20 text-center text-red-500">Error: {error}</div>;
+  }
 
   return (
     <main className="mt-20 px-4">
@@ -56,7 +63,9 @@ const Family: FC = () => {
         {images.map((image, index) => (
           <div
             key={index}
-            className={`relative overflow-hidden cursor-pointer ${index % 6 === 0 || index % 6 === 3 ? "row-span-2" : ""}`}
+            className={`relative overflow-hidden cursor-pointer ${
+              index % 6 === 0 || index % 6 === 3 ? "row-span-2" : ""
+            }`}
             onClick={() => openModal(image)}
           >
             <Image

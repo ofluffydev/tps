@@ -5,15 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 
-interface HeaderProps {
-  isBeta: boolean;
-}
-
-const Header = ({ isBeta }: HeaderProps) => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
-
-  console.log("Header isBeta:", isBeta);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -52,11 +46,6 @@ const Header = ({ isBeta }: HeaderProps) => {
             <Link href="/contact" className="hover:text-gray-300">
               Contact
             </Link>
-            {isBeta ? (
-              <Link href="/preview" className="hover:text-gray-300">
-                Preview
-              </Link>
-            ) : null}
             <ThemeToggle />
           </div>
           {/* Mobile Menu Button and Theme Toggle */}
@@ -123,14 +112,6 @@ const Header = ({ isBeta }: HeaderProps) => {
             >
               Contact
             </Link>
-            {isBeta ? (
-              <Link
-                href="/preview"
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-white"
-              >
-                Preview
-              </Link>
-            ) : null}
           </div>
         </div>
       </nav>

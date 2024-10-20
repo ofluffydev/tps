@@ -1,51 +1,42 @@
 "use client";
 
 import Image from "next/image";
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import ImageModal from "@/components/ui/ImageModal";
-
-const images = [
-  {
-    src: "/images/gallery/baby/baby1.jpg",
-    alt: "Baby 1",
-  },
-  {
-    src: "/images/gallery/baby/baby2.jpg",
-    alt: "Baby 2",
-  },
-  {
-    src: "/images/gallery/baby/baby3.jpg",
-    alt: "Baby 3",
-  },
-  {
-    src: "/images/gallery/baby/baby4.jpg",
-    alt: "Baby 4",
-  },
-  {
-    src: "/images/gallery/baby/baby5.jpg",
-    alt: "Baby 5",
-  },
-  {
-    src: "/images/gallery/baby/baby6.jpg",
-    alt: "Baby 6",
-  },
-  {
-    src: "/images/gallery/baby/baby7.jpg",
-    alt: "Baby 7",
-  },
-  {
-    src: "/images/gallery/baby/baby8.jpg",
-    alt: "Baby 8",
-  },
-];
 
 interface ImageType {
   src: string;
   alt: string;
 }
 
-const Seniors: FC = () => {
+const Baby: FC = () => {
+  const [images, setImages] = useState<ImageType[]>([]);
   const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/images?gallery=baby")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (Array.isArray(data.images)) {
+          setImages(data.images);
+        } else {
+          throw new Error("Received data is not in the expected format");
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching images:", err);
+        setError("Failed to load images. Please try again later.");
+        setLoading(false);
+      });
+  }, []);
 
   const openModal = (image: ImageType) => {
     setSelectedImage(image);
@@ -54,6 +45,14 @@ const Seniors: FC = () => {
   const closeModal = () => {
     setSelectedImage(null);
   };
+
+  if (loading) {
+    return <div className="mt-20 text-center">Loading...</div>;
+  }
+
+  if (error) {
+    return <div className="mt-20 text-center text-red-500">Error: {error}</div>;
+  }
 
   return (
     <main className="mt-20 px-4">
@@ -86,4 +85,4 @@ const Seniors: FC = () => {
   );
 };
 
-export default Seniors;
+export default Baby;

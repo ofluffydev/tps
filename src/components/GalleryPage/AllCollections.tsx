@@ -1,4 +1,5 @@
 import GalleryCard from "@/components/GalleryCard";
+import { title } from "process";
 import React from "react";
 
 const collections = [
@@ -19,6 +20,12 @@ const collections = [
     image: "/images/baby1_550x550.jpg",
     description: "Never forget your little one's first moments.",
     link: "/gallery/baby",
+  },
+  {
+    title: "Kids Collection",
+    image: "/images/gallery/kids/10x20_0.jpg",
+    description: "Kids are the best models.",
+    link: "/gallery/kids",
   },
 ];
 
