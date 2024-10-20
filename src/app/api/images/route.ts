@@ -2,8 +2,6 @@ import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
 
-export const runtime = 'edge';
-
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const gallery = url.searchParams.get("gallery") || "kids";
