@@ -1,7 +1,5 @@
 "use client";
 
-export const runtime = 'edge';
-
 import Image from "next/image";
 import { FC, useState, useEffect } from "react";
 import ImageModal from "@/components/ui/ImageModal";
@@ -60,19 +58,7 @@ const GalleryPage: FC<GalleryPageProps> = ({ params }) => {
 
   useEffect(() => {
     if (images.length > 0) {
-      const loadImages = async () => {
-        for (const image of images) {
-          setLoadedImages((prev) => {
-            if (!prev.some((img) => img.src === image.src)) {
-              return [...prev, image];
-            }
-            return prev;
-          });
-          await new Promise((resolve) => setTimeout(resolve, 100)); // Simulate loading delay
-        }
-      };
-
-      loadImages();
+      setLoadedImages(images);
     }
   }, [images]);
 
