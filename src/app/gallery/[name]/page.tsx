@@ -1,5 +1,7 @@
 "use client";
 
+export const runtime = 'edge';
+
 import Image from "next/image";
 import { FC, useState, useEffect } from "react";
 import ImageModal from "@/components/ui/ImageModal";
