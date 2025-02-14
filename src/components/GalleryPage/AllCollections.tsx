@@ -1,35 +1,60 @@
+"use client";
+
 import GalleryCard from "@/components/GalleryCard";
-import { title } from "process";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const collections = [
-  {
-    title: "Seniors Collection",
-    image: "/images/senior1_550x550.jpg",
-    description: "Senior portraits that capture the essence of youth.",
-    link: "/gallery/seniors",
-  },
-  {
-    title: "Family Collection",
-    image: "/images/family1_550x550.jpg",
-    description: "Capturing the memories of your family.",
-    link: "/gallery/family",
-  },
-  {
-    title: "Baby Collection",
-    image: "/images/baby1_550x550.jpg",
-    description: "Never forget your little one's first moments.",
-    link: "/gallery/baby",
-  },
-  {
-    title: "Kids Collection",
-    image: "/images/gallery/kids/10x20_0.jpg",
-    description: "Kids are the best models.",
-    link: "/gallery/kids",
-  },
-];
+interface Collection {
+  title: string;
+  image: string;
+  description: string;
+  link: string;
+}
 
-function AllCollections() {
+const AllCollections = () => {
+  const [collections, setCollections] = useState<Collection[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchCollections = async () => {
+      try {
+        const pingResponse = await fetch("https://galleries.thephotostore.com/");
+        if (!pingResponse.ok || (await pingResponse.text()) !== "Pong") {
+          throw new Error("External API is not online");
+        }
+
+        const response = await fetch("https://galleries.thephotostore.com/galleries");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const galleries = await response.json();
+        const fetchedCollections = await Promise.all(
+          galleries.map(async (gallery: { name: string }) => {
+            const highlightResponse = await fetch(`https://galleries.thephotostore.com/galleries/${gallery.name}/highlight`);
+            const highlightImage = highlightResponse.url; // Use the URL directly
+            return {
+              title: `${gallery.name.charAt(0).toUpperCase() + gallery.name.slice(1)} Collection`,
+              image: highlightImage,
+              description: `Collection of ${gallery.name} photos.`,
+              link: `/gallery/${gallery.name}`,
+            };
+          })
+        );
+
+        setCollections(fetchedCollections);
+      } catch (error) {
+        console.error("Error fetching collections:", error);
+        setError("Failed to load collections. Please try again later.");
+      }
+    };
+
+    fetchCollections();
+  }, []);
+
+  if (error) {
+    return <div className="mt-20 text-center text-red-500">Error: {error}</div>;
+  }
+
   return (
     <div className="mt-20">
       <div className="text-center mb-4">
@@ -45,6 +70,6 @@ function AllCollections() {
       </div>
     </div>
   );
-}
+};
 
 export default AllCollections;

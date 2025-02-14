@@ -14,6 +14,12 @@ const nextConfig = {
         port: "",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "galleries.thephotostore.com",
+        port: "",
+        pathname: "**",
+      },
     ],
   },
 };
