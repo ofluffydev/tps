@@ -17,12 +17,12 @@ const AllCollections = () => {
   useEffect(() => {
     const fetchCollections = async () => {
       try {
-        const pingResponse = await fetch("https://galleries.thephotostore.com/");
+        const pingResponse = await fetch("https://api.thephotostore.com/");
         if (!pingResponse.ok || (await pingResponse.text()) !== "Pong") {
           throw new Error("External API is not online");
         }
 
-        const response = await fetch("https://galleries.thephotostore.com/galleries");
+        const response = await fetch("https://api.thephotostore.com/galleries");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -30,7 +30,7 @@ const AllCollections = () => {
         const galleries = await response.json();
         const fetchedCollections = await Promise.all(
           galleries.map(async (gallery: { name: string }) => {
-            const highlightResponse = await fetch(`https://galleries.thephotostore.com/galleries/${gallery.name}/highlight`);
+            const highlightResponse = await fetch(`https://api.thephotostore.com/galleries/${gallery.name}/highlight`);
             const highlightImage = highlightResponse.url; // Use the URL directly
             return {
               title: `${gallery.name.charAt(0).toUpperCase() + gallery.name.slice(1)} Collection`,

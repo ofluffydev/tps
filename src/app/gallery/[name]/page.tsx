@@ -30,7 +30,7 @@ const GalleryPage: FC<GalleryPageProps> = ({ params }) => {
 
     const fetchImages = async () => {
       try {
-        const response = await fetch("https://galleries.thephotostore.com/galleries");
+        const response = await fetch("https://api.thephotostore.com/galleries");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -42,7 +42,7 @@ const GalleryPage: FC<GalleryPageProps> = ({ params }) => {
         }
 
         const images = gallery.images.map((file: string) => ({
-          src: `https://galleries.thephotostore.com/galleries/${name}/${file}`,
+          src: `https://api.thephotostore.com/galleries/${name}/${file}`,
           alt: `Image from the ${name} gallery, named ${file}`,
         }));
 

@@ -4,20 +4,20 @@ import React from "react";
 
 const labs = [
   {
-    title: "Film Processing",
-    description: "We process and scan various types of photo film.",
+    title: "Film Scanning",
+    description: "We scan various types of film such as 120, 35mm, slides, etc.",
     image: "/images/glenn-carstens-peters-_beva4GjGzk-unsplash.jpg",
     link: "/services",
   },
   {
     title: "Reel Transfers",
-    description: "We transfer audio reels to digital formats like MP3 and WAV.",
+    description: "We transfer video and audio reels to digital formats.",
     image: "/images/reel.webp",
     link: "/services",
   },
   {
     title: "Tapes",
-    description: "We transfer audio and video tapes to digital media.",
+    description: "We transfer audio and video tapes to digital media IN HOUSE. No outsourcing!",
     image: "/images/tapes.avif",
     link: "/services",
   },
